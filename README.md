@@ -158,17 +158,17 @@ After new text is created it needs to get back to default input
 
 ```
 headingInputEl.value = "";
-        headingInputEl.style.display = "none";
-        headingInputEl.setAttribute("placeholder", "Type / for blocks, @ to link docs or people")
-        heading.parentNode.replaceChild(editHeadingType, heading);
+headingInputEl.style.display = "none";
+headingInputEl.setAttribute("placeholder", "Type / for blocks, @ to link docs or people")
+heading.parentNode.replaceChild(editHeadingType, heading);
 ```
 
-Also if user is not selected a heading type he can't press enter and create a text until he choose a heading type:
+Also if heading type isn't selected he can't press enter and create a text until he choose a heading type:
 
 ```
 if(headingInputEl.getAttribute("placeholder").includes("Type / for blocks, @ to link docs or people")) {
-        return false;
-    }
+    return false;
+}
 ```
 
 Next lines of code is about to enable edit clicked specific text
