@@ -270,6 +270,12 @@ function handleShowHeadingList(e) {
 
 ```
 
+This variable is defined and used to save heading text list in case that in future we want to save values to some database
+
+```
+let headingTexts = [];
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 

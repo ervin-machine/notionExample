@@ -135,9 +135,15 @@ headingList.forEach((item) => {
         headingInputEl.value = "";
         headingInputEl.setAttribute("placeholder", item.naziv);
     
-  });
+    });
 
-});
+    });
+
+    function focuseHeadingInput(){
+        setTimeout(function() { 
+            headingInputEl.focus(); 
+        }, 100);
+    }
 
 function handleShowHeadingList(e) {
     if(headingInputEl.value === "/" && headingInputEl.getAttribute("placeholder").includes("Type / for blocks, @ to link docs or people")) {

@@ -1,10 +1,19 @@
-h1, h3, p, span {
+h1, h3, p, span, li {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
+}
+
+.material-symbols-outlined {
+    font-size: 16px !important;
+}
+
+.open-book-icon {
+    position: absolute;
+    margin-top: 1px;
 }
 
 .navbar-item {
@@ -21,7 +30,24 @@ h1, h3, p, span {
 .header-item {
     font-size: 16px;
     color: grey;
+    margin: 0;
+    margin-top: 15px;
 }
+
+.header-item-icons {
+    font-size: 16px;
+    color: grey;
+    margin: 0;
+    margin-top: 12px;
+}
+
+.header-item-img {
+    font-size: 16px;
+    color: grey;
+    margin: 0;
+    margin-top: 12px;
+}
+
 
 .p-letter {
     color: darkgreen;
@@ -34,7 +60,7 @@ hr {
 .main-item {
     text-decoration: underline;
     font-weight: bold;
-    margin-left: 5px;
+    margin-left: 20px;
 }
 
 .main-container {
@@ -53,6 +79,7 @@ hr {
 .rectangle-content {
     display: flex;
     justify-content: space-between;
+    height: 50px;
 }
 
 .p-letter-rectangle {
