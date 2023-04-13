@@ -6,7 +6,7 @@
   <h3 align="center">Notion Example</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Simple Notion Example
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -43,7 +43,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://notion-example.herokuapp.com/)
 
 Project was about to create notion example but a little simplier to use. In this project you can make a few heading blocks this is just some prototype. 
 
