@@ -132,18 +132,16 @@ headingList.forEach((item) => {
 
         headingListElement.style.display = "none";
 
+        setTimeout(function() { 
+            headingInputEl.focus(); 
+        }, 200);
+
         headingInputEl.value = "";
         headingInputEl.setAttribute("placeholder", item.naziv);
     
     });
 
     });
-
-    function focusHeadingInput(){
-        setTimeout(function() { 
-            headingInputEl.focus(); 
-        }, 100);
-    }
 
 function handleShowHeadingList(e) {
     if(headingInputEl.value === "/" && headingInputEl.getAttribute("placeholder").includes("Type / for blocks, @ to link docs or people")) {
@@ -153,10 +151,13 @@ function handleShowHeadingList(e) {
     if(headingInputEl.value === "" || !headingInputEl.getAttribute("placeholder").includes("Type / for blocks, @ to link docs or people")) {
         headingListElement.style.display = "none";
     }
-
     headingList.map(item => {
         if(headingInputEl.value === item.shortcut) {
             let headingeEl = document.createElement(item.element);
+            
+            setTimeout(function() { 
+                headingInputEl.focus(); 
+            }, 200);
 
             setElement(item.element);
 
@@ -168,7 +169,6 @@ function handleShowHeadingList(e) {
             headingTypeEl.parentNode.replaceChild(headingeEl, headingTypeEl);
 
             headingInputEl.value = "";
-            headingInputEl.setAttribute("autofocus", "true")
             headingInputEl.setAttribute("placeholder", item.naziv);
 
             headingeEl.append(headingInputEl);
