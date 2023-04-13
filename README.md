@@ -159,6 +159,14 @@ headingInputEl.setAttribute("placeholder", "Type / for blocks, @ to link docs or
 heading.parentNode.replaceChild(editHeadingType, heading);
 ```
 
+and if you want to create a new heading text you will need to click anywhere below created text:
+
+```
+function handleShowInput () {
+    headingInputEl.style.display = "block";
+}
+```
+
 Also if heading type isn't selected he can't press enter and create a text until he choose a heading type:
 
 ```
