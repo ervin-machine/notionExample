@@ -133,10 +133,6 @@ headingList.forEach((item) => {
 
         headingListElement.style.display = "none";
 
-        setTimeout(function() { 
-            headingInputEl.focus(); 
-        }, 200);
-
         headingInputEl.value = "";
         headingInputEl.setAttribute("placeholder", item.naziv);
     
