@@ -139,7 +139,7 @@ headingList.forEach((item) => {
 
     });
 
-    function focuseHeadingInput(){
+    function focusHeadingInput(){
         setTimeout(function() { 
             headingInputEl.focus(); 
         }, 100);
