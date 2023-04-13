@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/49ce967d66.js" crossorigin="anonymous"></script>
+<title>Front-end test project</title>
+</head>
+<body>
+<div class="navbar">
+    <div style="display: flex;"> 
+        <p><i class="fa-solid fa-angles-right" style="color: black; font-size: 16px; margin-left: 20px;"></i></p>
+        <p class="navbar-item"><i class="fa-solid fa-book-open"></i><span class="main-item">Main</span> / Getting started / Front-end developer test proj...</p>
+    </div>
+    <div style="display: flex;">
+        <p class="navbar-item" style="margin-right: 20px;"><i class="fa-solid fa-unlock-keyhole" style="margin-right: 5px;"></i>Editing <span style="margin-left: 20px;">|</span></p>
+        <p class="publish-navbar-item"> Publish Space <i class="fa-solid fa-chevron-down" style="margin-right: 20px; margin-left: 5px;"></i></p>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="rectangle">
+        <div class="rectangle-content">
+            <div style="display: flex;">
+                <div class="p-letter-rectangle">
+                    <p class="p-letter">P</p>
+                </div>
+                <p class="header-item"> | <i class="fa-regular fa-clock" style="margin-left: 5px;"></i> 0min | </p>
+                <p class="header-item"> <img class="rabbit-icon" src="rabbit.png" alt=""/> </p>
+                <p class="header-item">|</p>
+                <p class="header-item" style="margin-left: 5px;">0</p>
+            </div>
+            <div style="display: flex;">
+        
+            </div>
+        </div>
+    </div>
+    
+    <h1>Front-end developer test project</h1>
+    <hr />
+    <p class="description-text">Your goal is to make a page that looks exactly like this one, and has ability to create H1 text simply by typing / then 1, then typing text, and hitting enter.</p>
+    <div id="heading-text-list" class="heading-text-list"></div>
+    <div id="heading-body" class="heading-body" onclick="handleShowInput()">
+        <p id="heading-type"><input id="heading-input" class="heading-input" placeholder="Type / for blocks, @ to link docs or people" type="text" onkeyup="handleShowHeadingList()" /></p>
+        <ul id="heading-list" class="heading-list">
+            <h3 class="add-blocks-text">Add blocks</h3>
+            <p class="filter-text">Keep typing to filter, or escape to exit</p>
+            <p class="keyword-text">Filtering keyword</p>
+        </ul>
+    </div>
+</div>
+
+
+<script src="handleNotionExample.js"></script> 
+</body>
