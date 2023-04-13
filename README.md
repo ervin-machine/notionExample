@@ -83,7 +83,7 @@ Below is explanation how you can start to use this project
 ## Usage
 
 
-Here is the magic happening, it used to handle creating and editing a text.
+Here is the magic happening, it used to handle creating and editing a text and also if user decide to cancel creating text just press Escape button.
 
 ```
 headingInputEl.addEventListener('keydown', (event) => {
@@ -146,6 +146,48 @@ headingInputEl.addEventListener('keydown', (event) => {
     }
 });
 
+```
+
+This if is used to create a New Text after pressing Enter
+
+```
+    if(event.key === "Enter")
+```
+
+After new text is created it needs to get back to default input
+
+```
+headingInputEl.value = "";
+        headingInputEl.style.display = "none";
+        headingInputEl.setAttribute("placeholder", "Type / for blocks, @ to link docs or people")
+        heading.parentNode.replaceChild(editHeadingType, heading);
+```
+
+Also if user is not selected a heading type he can't press enter and create a text until he choose a heading type:
+
+```
+if(headingInputEl.getAttribute("placeholder").includes("Type / for blocks, @ to link docs or people")) {
+        return false;
+    }
+```
+
+Next lines of code is about to enable edit clicked specific text
+
+```
+headingTextItem.addEventListener('click', function handleClick(event) {
+            selectedEl = event.target;
+            selectedEl.removeAttribute("disabled");
+        });
+```
+
+After you have edited your text just press Enter, here is a code example how is that done
+
+```
+editInput.addEventListener("keypress", function(event) {
+            if(event.key === "Enter") {
+                selectedEl.setAttribute("disabled", "true");
+            }
+        });
 ```
 
 Below code is used to fill heading list element with types of headings and after click on specific heading item it will change a input to selected heading item.
