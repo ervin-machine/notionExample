@@ -50,8 +50,6 @@ Project was about to create notion example but a little simplier to use. In this
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 * Javascript
 * HTML
 * CSS
