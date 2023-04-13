@@ -89,7 +89,6 @@ headingInputEl.addEventListener('keydown', (event) => {
 
         headingTextItem.addEventListener('click', function handleClick(event) {
             selectedEl = event.target;
-            selectedEl.getAttribute("disabled");
             selectedEl.removeAttribute("disabled");
         });
 
@@ -132,6 +131,10 @@ headingList.forEach((item) => {
         headingTypeEl.parentNode.replaceChild(heading, headingTypeEl);
 
         headingListElement.style.display = "none";
+
+        setTimeout(function() { 
+            headingInputEl.focus(); 
+        }, 200);
 
         headingInputEl.value = "";
         headingInputEl.setAttribute("placeholder", item.naziv);
