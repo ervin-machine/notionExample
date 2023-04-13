@@ -89,12 +89,12 @@ headingInputEl.addEventListener('keydown', (event) => {
 
         headingTextItem.addEventListener('click', function handleClick(event) {
             selectedEl = event.target;
-            selectedEl.removeAttribute("disabled");
+            event.target.removeAttribute("disabled");
         });
 
         editInput.addEventListener("keypress", function(event) {
             if(event.key === "Enter") {
-                selectedEl.setAttribute("disabled", "true");
+                event.target.setAttribute("disabled", "true");
             }
         });
     }
