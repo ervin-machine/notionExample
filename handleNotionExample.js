@@ -10,8 +10,8 @@ let headingList = [
         id: 2,
         naziv: "Expandable Heading 1",
         element: "h2",
-        text: "Shortcut: type /1+",
-        shortcut: "/1+"
+        text: "Shortcut: type /++1",
+        shortcut: "/++1"
     },
     {
         id: 3,
@@ -45,11 +45,15 @@ headingInputEl.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         let heading = document.getElementById("heading-type");
         let editHeadingType = document.createElement('p');
-        editHeadingType.setAttribute("id", "heading-type")
+
         headingInputEl.value = "";
         headingInputEl.setAttribute("placeholder", "Type / for blocks, @ to link docs or people")
+
         heading.parentNode.replaceChild(editHeadingType, heading);
+
+        editHeadingType.setAttribute("id", "heading-type")
         editHeadingType.append(headingInputEl);
+
         headingListElement.style.display = "none";
     }
 
@@ -67,6 +71,8 @@ headingInputEl.addEventListener('keydown', (event) => {
 
         editInput.setAttribute("class", "edit-heading-input");
         editInput.setAttribute("disabled", "true");
+
+        headingInputEl.removeAttribute("autofocus");
 
         headingTextItem.appendChild(editInput); 
         editInput.value = headingInputEl.value;
@@ -87,14 +93,14 @@ headingInputEl.addEventListener('keydown', (event) => {
         });
 
         editInput.addEventListener("keypress", function(event) {
-                if(event.key === "Enter") {
-                    selectedEl.setAttribute("disabled", "true");
-                }
-            });
+            if(event.key === "Enter") {
+                selectedEl.setAttribute("disabled", "true");
+            }
+        });
     }
 });
 
-headingList.forEach((item, index) => {
+headingList.forEach((item) => {
   let headingListContent = document.createElement("div");
   let headingListItem = document.createElement("li");
   let headingItemText = document.createElement("li");
@@ -154,7 +160,9 @@ function handleShowHeadingList(e) {
 
             headingTypeEl = document.getElementById("heading-type")
             headingTypeEl.parentNode.replaceChild(headingeEl, headingTypeEl);
+
             headingInputEl.value = "";
+            headingInputEl.setAttribute("autofocus", "true")
             headingInputEl.setAttribute("placeholder", item.naziv);
 
             headingeEl.append(headingInputEl);
