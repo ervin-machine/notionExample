@@ -50,6 +50,7 @@ headingInputEl.addEventListener('keydown', (event) => {
         headingInputEl.setAttribute("placeholder", "Type / for blocks, @ to link docs or people")
         heading.parentNode.replaceChild(editHeadingType, heading);
         editHeadingType.append(headingInputEl);
+        headingListElement.style.display = "none";
     }
 
     if(headingInputEl.getAttribute("placeholder").includes("Type / for blocks, @ to link docs or people")) {
