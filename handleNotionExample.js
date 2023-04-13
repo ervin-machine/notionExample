@@ -89,7 +89,8 @@ headingInputEl.addEventListener('keydown', (event) => {
 
         headingTextItem.addEventListener('click', function handleClick(event) {
             selectedEl = event.target;
-            event.target.removeAttribute("disabled");
+            selectedEl.getAttribute("disabled");
+            selectedEl.removeAttribute("disabled");
         });
 
         editInput.addEventListener("keypress", function(event) {
