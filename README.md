@@ -65,12 +65,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Below is explanation how you can start to use this project
 
 1. Clone the repo
    ```sh
@@ -87,9 +82,151 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Here is the magic happening, it used to handle creating and editing a text.
+
+```
+headingInputEl.addEventListener('keydown', (event) => {
+
+    if (event.key === 'Escape') {
+        let heading = document.getElementById("heading-type");
+        let editHeadingType = document.createElement('p');
+
+        headingInputEl.value = "";
+        headingInputEl.setAttribute("placeholder", "Type / for blocks, @ to link docs or people")
+
+        heading.parentNode.replaceChild(editHeadingType, heading);
+
+        editHeadingType.setAttribute("id", "heading-type")
+        editHeadingType.append(headingInputEl);
+
+        headingListElement.style.display = "none";
+    }
+
+    if(headingInputEl.getAttribute("placeholder").includes("Type / for blocks, @ to link docs or people")) {
+        return false;
+    }
+
+    if(event.key === "Enter") {
+        heading = document.getElementById("heading-type");
+        headingTexts = [...headingTexts, { id: 1, text: headingInputEl.value, element: getElement() }]
+
+        let headingTextItem = document.createElement(getElement());
+        let editHeadingType = document.createElement("p");
+        let editInput = document.createElement("input");
+
+        editInput.setAttribute("class", "edit-heading-input");
+        editInput.setAttribute("disabled", "true");
+
+        headingInputEl.removeAttribute("autofocus");
+
+        headingTextItem.appendChild(editInput); 
+        editInput.value = headingInputEl.value;
+
+        headingsTextListEl.appendChild(headingTextItem);
+
+        headingInputEl.value = "";
+        headingInputEl.style.display = "none";
+        headingInputEl.setAttribute("placeholder", "Type / for blocks, @ to link docs or people")
+        heading.parentNode.replaceChild(editHeadingType, heading);
+
+        editHeadingType.setAttribute("id","heading-type");
+        editHeadingType.append(headingInputEl);
+
+        headingTextItem.addEventListener('click', function handleClick(event) {
+            selectedEl = event.target;
+            selectedEl.removeAttribute("disabled");
+        });
+
+        editInput.addEventListener("keypress", function(event) {
+            if(event.key === "Enter") {
+                selectedEl.setAttribute("disabled", "true");
+            }
+        });
+    }
+});
+
+```
+
+Below code is used to fill heading list element with types of headings and after click on specific heading item it will change a input to selected heading item.
+
+```
+headingList.forEach((item) => {
+  let headingListContent = document.createElement("div");
+  let headingListItem = document.createElement("li");
+  let headingItemText = document.createElement("li");
+
+  headingListContent.setAttribute("class", "heading-list-content")
+
+  headingListContent.appendChild(headingListItem);
+  headingListContent.appendChild(headingItemText)
+
+  headingListItem.setAttribute("class", "heading-item");
+  headingItemText.setAttribute("class", "heading-item-text");
+
+  headingListItem.innerText = item.naziv;
+  headingItemText.innerText = item.text;
+
+  headingListElement.appendChild(headingListContent)
+
+  headingListContent.addEventListener('click', function handleClick(event) {
+
+        let heading = document.createElement(item.element);
+
+        setElement(item.element);
+
+        heading.setAttribute("id","heading-type");
+        heading.append(headingInputEl);
+        
+        headingTypeEl = document.getElementById("heading-type")
+        headingTypeEl.parentNode.replaceChild(heading, headingTypeEl);
+
+        headingListElement.style.display = "none";
+
+        headingInputEl.value = "";
+        headingInputEl.setAttribute("placeholder", item.naziv);
+    
+  });
+
+});
+
+```
+
+function handleShowHeadingList is used to handle showing heading list types after typing "/" and is used to, to get a specfic heading input after typing shortcut for specific heading.
+
+```
+function handleShowHeadingList(e) {
+    if(headingInputEl.value === "/" && headingInputEl.getAttribute("placeholder").includes("Type / for blocks, @ to link docs or people")) {
+        headingListElement.style.display = "block";
+    }
+
+    if(headingInputEl.value === "" || !headingInputEl.getAttribute("placeholder").includes("Type / for blocks, @ to link docs or people")) {
+        headingListElement.style.display = "none";
+    }
+
+    headingList.map(item => {
+        if(headingInputEl.value === item.shortcut) {
+            let headingeEl = document.createElement(item.element);
+
+            setElement(item.element);
+
+            headingeEl.setAttribute("id","heading-type");
+
+            headingListElement.style.display = "none";
+
+            headingTypeEl = document.getElementById("heading-type")
+            headingTypeEl.parentNode.replaceChild(headingeEl, headingTypeEl);
+
+            headingInputEl.value = "";
+            headingInputEl.setAttribute("autofocus", "true")
+            headingInputEl.setAttribute("placeholder", item.naziv);
+
+            headingeEl.append(headingInputEl);
+        }
+    })
+}
+
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
